@@ -1,5 +1,5 @@
 import {Button} from './Button';
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import styled from 'styled-components';
 import {useAppSelector} from './hooks/useAppSelector';
 import {useAppDispatch} from './hooks/useAppDispatch';
@@ -21,14 +21,7 @@ export const Settings = ({
     const [maxInputValue, setMaxInputValue] = useState<number>(maxCount)
     const [minInputValue, setMinInputValue] = useState<number>(minCount)
     const [disabled, setDisabled] = useState<boolean>(false)
-    useEffect(() => {
-        const countValueMax = localStorage.getItem('countValueMax')
-        const countValueMin = localStorage.getItem('countValueMin')
-        if (countValueMax && countValueMin) {
-            setMaxInputValue(JSON.parse(countValueMax))
-            setMinInputValue(JSON.parse(countValueMin))
-        }
-    }, []);
+
 
     const maxCountHandler = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setDisabledCounterAC({increment: true, decrement: true}))

@@ -3,7 +3,7 @@ type DisabledCounterType = {
     decrement: boolean;
 }
 
-type CounterType = {
+export type CounterType = {
     count: number;
     minCount: number;
     maxCount: number;

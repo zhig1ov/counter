@@ -1,4 +1,4 @@
-
+import {RootState} from './store/store';
 
 export const loadState = (key: string) => {
     try {
@@ -12,7 +12,7 @@ export const loadState = (key: string) => {
     }
 };
 
-export const saveState = (key: string, state: any) => {
+export const saveState = (key: string, state: RootState) => {
     try {
         const serializedState = JSON.stringify(state);
         localStorage.setItem(key, serializedState);
